@@ -1,0 +1,13 @@
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+<p>
+	<ul>
+		<li>Zipcode: <%= @user.zipcode %></li>
+		<li>Gender: <%= @user.gender %></li>
+		<li>Looking for: <%= @user.lookingfor %></li>
+		<li>Age: <%= @user.age %></li>
+	</ul>
+</p>
