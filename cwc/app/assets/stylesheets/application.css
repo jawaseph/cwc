@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+body{
+	font-family: Oswald;
+	background-color: white;
+	padding: 20px
+}
+
+iframe{
+	height: 700px;
+}
