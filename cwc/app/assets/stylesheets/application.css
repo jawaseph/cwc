@@ -16,14 +16,30 @@
 
 
 body{
-	font-family: Oswald;
+	font-family: Open Sans;
 	background-color: #F0F0F0 ;
 	padding: 20px;
 	background-image: url("/cafebackground.jpg");
 	color:white;
+	text-align: center;
 }
 
-iframe {
-	height: 700px;
+body h1 {
+	text-align: center;
+	font-family: Pacifico;
+	font-size: 120px;
+	line-height: .75;
+	text-shadow: black 0.1em 0.1em 0.2em;	
 }
 
+body h2 {
+	font-family: Open Sans;
+	text-align: center;
+	text-shadow: black 0.1em 0.1em 0.2em;	
+	letter-spacing: 1px;
+}
+
+#sign-up {
+	background-color: rgb(202, 60, 60);
+	
+}
