@@ -3,5 +3,6 @@
 	<% url = "https://newhaven.craigslist.org/" + partial_url %>
 	<% doc = Nokogiri::HTML(open(url)) %>
 	<h1><%= @cg_title = post["text"] %></h1>
-	<p><%= @cg_text = doc.at_css("section#postingbody").text %><p>
+	<p><b>User Traits: <%= @cg_traits = doc.css("b").text %></b></p>
+	<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
 <% end %>
