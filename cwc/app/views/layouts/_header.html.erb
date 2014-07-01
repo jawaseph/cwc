@@ -1,9 +1,9 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
+<header class="pure-g">
+  <div class="pure-u-1-2">
     <div class="container">
-      <%= link_to "Coffee with a Creeper", root_path, id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="pure-u-1-2 pure-menu pure-menu-open pure-menu-horizontal">
+          <li><%= link_to "Coffee with a Creeper", root_path, id: "logo" %></li>
           <li><%= link_to "Home",    root_path %></li>
           <% if signed_in? %>
           <li><%= link_to "Users", '#' %></li>

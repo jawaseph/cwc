@@ -17,10 +17,11 @@
 
 body{
 	font-family: Oswald;
-	background-color: white;
+	background-color: #F0F0F0 ;
 	padding: 20px
 }
 
 iframe{
 	height: 700px;
 }
+
