@@ -1,36 +1,36 @@
 <% provide(:title, 'Sign Up') %>
-<h1>Sign Up</h1>
+<div class="pure-g">
+  <div class="pure-u-1">
+    <h3>Sign Up</h3>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
+      <div class="pure-form">
+      <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <%= f.text_field :name, :placeholder => "Name", :class => "pure-input-rounded" %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.text_field :email, :placeholder => "Email", :class => "pure-input-rounded" %>
+        <br>
 
-      <%= f.label :zipcode %>
-      <%= f.text_field :zipcode %>
+        <%= f.password_field :password, :placeholder => "Password", :class => "pure-input-rounded " %>
 
-      <%= f.label :gender %>
-      <%= f.text_field :gender %>
+        <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "pure-input-rounded" %>
+        <br>
 
-      <%= f.label :lookingfor %>
-      <%= f.text_field :lookingfor %>
+        <%= f.text_field :zipcode, :placeholder => "Zipcode", :class => "pure-input-rounded" %>
+        <%= f.text_field :age, :placeholder => "Age", :class => "pure-input-rounded" %>
+        <br>
 
-      <%= f.label :age %>
-      <%= f.text_field :age %>
+        <%= f.label :gender %>
+        <%= f.select :gender, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields") %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.label :lookingfor %>
+        <%= f.select :lookingfor, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields")%>
+        <br>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
+        <%= f.submit "Create my account", class: "button-signup pure-button", id: "sign-up2" %>
+        <% end %>
+      </div>
+      </div>
   </div>
 </div>
