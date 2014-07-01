@@ -19,6 +19,7 @@ body{
 	font-family: Open Sans;
 	background-color: #F0F0F0 ;
 	padding: 20px;
+	padding-left: 0px;
 	background-image: url("/cafebackground.jpg");
 	color:white;
 	text-align: center;
@@ -43,3 +44,44 @@ body h2 {
 	background-color: rgb(202, 60, 60);
 	
 }
+
+#topmenu {
+	background-color: rgba(255,255,255,0);
+	color: black;
+	font-family: Open Sans;
+}
+
+footer{
+	background-color: rgba(255,255,255,0.4);
+	color:white;
+	bottom:0;
+    position:fixed;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+    width: 100%;
+    font-family: Open Sans;
+}
+
+header {
+	background-color: rgba(255,255,255,0.4);
+	color:white;
+	position:fixed;
+	top:0px;
+	width: 100%;
+
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: black;
+	}
+
+a:hover {
+	color: black;
+	}
+
+a:active {
+	text-shadow: 0px 0px 10px black;;
+	color: black;
+	}

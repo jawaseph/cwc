@@ -2,7 +2,7 @@
   <div class="pure-u-1">
     <div class="container">
       <nav>
-        <ul class="pure-u-1 pure-menu pure-menu-open pure-menu-horizontal">
+        <ul id="topmenu" class="pure-u-1 pure-menu pure-menu-open pure-menu-horizontal">
           <li><%= link_to "Coffee with a Creeper", root_path, id: "logo" %></li>
           <li><%= link_to "Home",    root_path %></li>
           <% if signed_in? %>
