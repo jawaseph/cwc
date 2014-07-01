@@ -169,6 +169,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest
+  nokogiri
   rails (= 4.1.1)
   rails_12factor (= 0.0.2)
   rspec-rails (= 2.13.1)
