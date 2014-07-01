@@ -18,10 +18,12 @@
 body{
 	font-family: Oswald;
 	background-color: #F0F0F0 ;
-	padding: 20px
+	padding: 20px;
+	background-image: url("/cafebackground.jpg");
+	color:white;
 }
 
-iframe{
+iframe {
 	height: 700px;
 }
 
