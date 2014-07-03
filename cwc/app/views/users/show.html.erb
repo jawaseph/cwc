@@ -1,13 +1,31 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-<p>
-	<ul>
-		<li>Zipcode: <%= @user.zipcode %></li>
-		<li>Gender: <%= @user.gender %></li>
-		<li>Looking for: <%= @user.lookingfor %></li>
-		<li>Age: <%= @user.age %></li>
-	</ul>
-</p>
+<div class="pure-g">
+<div class="pure-u-1-2">
+	<div class="profile">
+		<h1>
+		  <%= gravatar_for @user %>
+		  <%= @user.name %>
+		</h1>
+		<p>
+			<ul>
+				<li>Zipcode: <%= @user.zipcode %></li>
+				<li>Gender: <%= @user.gender %></li>
+				<li>Looking for: <%= @user.lookingfor %></li>
+				<li>Age: <%= @user.age %></li>
+			</ul>
+		</p>
+	</div>
+</div>
+	<div class="pure-u-1-2">
+		<div class="matches">
+			<% @results.each do |post| %>
+			<% partial_url = post["href"] %>
+			<% url = "https://newhaven.craigslist.org/" + partial_url %>
+			<% doc = Nokogiri::HTML(open(url)) %>
+			<h3><%= @cg_title = post["text"] %></h3>
+			<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("b").text %></b></p>
+			<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
+			<% end %>
+		</div>
+</div>
+</div>
