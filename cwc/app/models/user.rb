@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
+	acts_as_mappable
+
 	validates :zipcode, presence: true
 	validates :gender, presence: true
 	validates :lookingfor, presence: true
