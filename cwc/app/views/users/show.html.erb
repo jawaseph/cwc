@@ -21,16 +21,19 @@
 	<div class="pure-u-1-2">
 		<div class="matches">
 			<% @craighash = Hash.new %>
-			<% @results.each do |post| %>
-			<% partial_url = post["href"] %>
-			<% url = "https://newhaven.craigslist.org/" + partial_url %>
-			<% doc = Nokogiri::HTML(open(url)) %>
-			<h3><%= @cg_title = post["text"] %></h3>
-			<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("b").text %></b></p>
-			<p><%= @cg_email = doc.css("reply_options").text%></p>
-			<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
-			<% @craighash[@cg_title] = [@cg_email, @cg_text, @cg_traits]  %>
-			<% end %>
+				<% @results.each do |post| %>
+					<% partial_url = post["href"] %>
+					<% url = "https://newhaven.craigslist.org/" + partial_url %>
+					<% doc = Nokogiri::HTML(open(url)) %>
+					<% @cg_title = post["text"]  %>
+					<% if @cg_title.include? (craiglove_for @user) %>
+					<h3><%= @cg_title %></h3>
+					<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("b").text %></b></p>
+					<p><a href="<%= @cg_email = "http://newhaven.craigslist.org/reply/hvn" + partial_url[0..(partial_url.length-6)] %>">Contact</a></p>
+					<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
+					<% @craighash[@cg_title] = [@cg_email, @cg_text, @cg_traits]  %>
+					<% end %>
+				<% end %>
 		</div>
 </div>
 </div>
