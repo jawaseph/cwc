@@ -1,0 +1,51 @@
+<% provide(:title, 'Edit your profile') %>
+<div class="pure-g">
+  <div class="pure-u-1">
+    <h3>Edit your Profile</h3>
+
+            <%= gravatar_for @user %>
+        <a style="color: white" href="http://gravatar.com/emails">Change</a>
+
+      <div class="pure-form">
+      <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+        <%= f.text_field :zipcode, :placeholder => "Zipcode", :class => "pure-input-rounded" %>
+
+        <%= f.text_field :age, :placeholder => "Age", :class => "pure-input-rounded" %>
+
+        <%= f.text_field :occupation, :placeholder => "occupation", :class => "pure-input-rounded" %>
+        <br>
+        <%= f.password_field :password, :placeholder => "Password", :class => "pure-input-rounded " %>
+
+        <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "pure-input-rounded" %>
+
+        <br>
+        <%= f.label :gender %>
+        <%= f.select :gender, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields") %>
+
+        <%= f.label :lookingfor %>
+        <%= f.select :lookingfor, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields")%>
+     
+        <%= f.label :height %>
+        <%= f.select :height, options_for_select([["4'0''", "4'0''"], ["4'1''", "4'1''"], ["4'2''", "4'2''"], ["4'3''", "4'3''"], ["4'4''", "4'4''"], ["4'5''", "4'5''"], ["4'6''", "4'6''"], ["4'7''", "4'7''"], ["4'8''", "4'8''"], ["4'9''", "4'9''"], ["4'10''", "4'10''"], ["4'11''", "4'11''"], ["5'0''", "5'0''"], ["5'1''", "5'1''"], ["5'2''", "5'2''"], ["5'3''", "5'3''"], ["5'4''", "5'4''"], ["5'5''", "5'5''"], ["5'6''", "5'6''"], ["5'7''", "5'7''"], ["5'8''", "5'8''"], ["5'9''", "5'9''"], ["5'10''", "5'10''"], ["5'11''", "5'11''"], ["6'0''", "6'0''"], ["6'1''", "6'1''"], ["6'2''", "6'2''"], ["6'3''", "6'3''"], ["6'4''", "6'4''"], ["6'5''", "6'5''"], ["6'6''", "6'6''"], ["6'7''", "6'7''"], ["6'8''", "6'8''"], ["6'9''", "6'9''"], ["6'10''", "6'10''"], ["6'11''", "6'11''"]], :class => "fields") %>
+
+        <%= f.label :status %>
+        <%= f.select :status, options_for_select([["Single", "single"], ["Partnered", "partnered"], ["Separated","separated"], ["Married","married"], ["Divorced", "divorced"], ["Widowed", "widowed"]], :class => "fields")%>
+        
+        <%= f.label :bodytype %>
+        <%= f.select :bodytype, options_for_select([["Athletic", "athletic"], ["Average", "average"], ["Big","big"], ["Curvy","curvy"], ["Fluffy","fluffy"], ["Fit", "fit"], ["Heavy", "heavy"], ["HWP", "hwp"], ["Skinny", "skinny"], ["Thin", "thin"]], :class => "fields")%>
+
+        <%= f.label :haircolor %>
+        <%= f.select :haircolor, options_for_select([["Brown", "brown"], ["Black", "black"], ["Blond","blond"], ["Gray","gray"], ["Rainbow","rainbow"], ["Red", "red"], ["Bald", "bald"], ["Baseball cap", "baseball cap"]], :class => "fields")%>
+        
+        <br>
+
+        <%= f.submit "Save Changes", class: "button-signup pure-button", id: "sign-up2" %>
+        <% end %>
+
+
+      </div>
+      </div>
+  </div>
+</div>

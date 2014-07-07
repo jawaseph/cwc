@@ -54,6 +54,7 @@
 .matches h3 {
 	font-family: Open Sans;
 	font-size: 26px;
+	text-shadow: black 0em 0em 0em;	
 
 }
 
@@ -134,12 +135,6 @@ a:active {
 	color: black;
 	}
 
-body h3 {
-	font-family:Pacifico;
-	font-size: 65px;
-	line-height: .65 ;
-	text-shadow: black 0.1em 0.1em 0.2em;	
-}
 
 #sign-in {
 	background-color: rgb(202, 60, 60);
@@ -169,6 +164,6 @@ body h3 {
 	margin:10px;
 }
 
+
 .fields {
-	margin:10px;
 }
