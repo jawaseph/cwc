@@ -10,7 +10,8 @@
       <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-        <%= f.text_field :zipcode, :placeholder => "Zipcode", :class => "pure-input-rounded" %>
+        <%= f.label :zipcode %>
+        <%= f.select :zipcode, options_for_select(craigcities(1), :class => "fields")%>
 
         <%= f.text_field :age, :placeholder => "Age", :class => "pure-input-rounded" %>
 

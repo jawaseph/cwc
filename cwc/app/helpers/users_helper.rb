@@ -29,9 +29,25 @@ module UsersHelper
  	return answer.reverse 
    end
 
-  def craigcities()
+  def craigcities(input)
+  	addresses = Array.new()
+  	cities = Array.new()
+  	str1_webmarkerstring = '"'
+	str2_webmarkerstring = '"'
+	str1_citymarkerstring = 'org/"'
+	str2_citymarkerstring = '@'
   	list = Nokogiri::HTML(open('http://geo.craigslist.org/iso/us')) 
   	allcities = list.css("#list").to_s.gsub('<div id="list">', "").gsub('<a href=', "").gsub('><b>', "").gsub('</b>', "").gsub('</a>', "").gsub('</div>', "").gsub('>', "")
-  	allcities.split('<br')
+  	addressvscity = allcities.split('<br')
+  	addressvscity.each do | element |
+  		addresses.push(element[/#{str1_webmarkerstring}(.*?)#{str2_webmarkerstring}/m, 1])
+  		element += '@'
+  		cities.push(element[/#{str1_citymarkerstring}(.*?)#{str2_citymarkerstring}/m, 1])
+  	end
+  	if (input==0)
+  		Hash[cities.zip(addresses)]
+  	else
+  		cities.zip(cities)
+  	end 
   end
 end

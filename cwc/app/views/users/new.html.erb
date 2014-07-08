@@ -17,8 +17,10 @@
         <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "pure-input-rounded" %>
         <br>
 
-        <%= f.label :zipcode %>
-        <%= f.select :zipcode, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields") %>
+        <%= f.label "location" %>
+        <%= f.select :zipcode, options_for_select(craigcities(1), :class => "fields") %>
+
+        <br>
 
         <%= f.text_field :age, :placeholder => "Age", :class => "pure-input-rounded" %>
         <br>
@@ -26,7 +28,7 @@
         <%= f.label :gender %>
         <%= f.select :gender, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields") %>
 
-        <%= f.label :lookingfor %>
+        <%= f.label "Looking for" %>
         <%= f.select :lookingfor, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields")%>
         <br>
 

@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @city = ("10001".to_region(:city => true)).delete(' ').downcase.to_sym
+    @city = ("06511".to_region(:city => true)).delete(' ').downcase.to_sym
   	@user = User.find(params[:id])
-    @results = Craigslist.city(@city).missed_connections.fetch(5)
+    @results = Craigslist.city(@city).missed_connections.fetch(50)
     @results
   end
 
