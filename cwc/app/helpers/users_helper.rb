@@ -28,4 +28,10 @@ module UsersHelper
 
  	return answer.reverse 
    end
+
+  def craigcities()
+  	list = Nokogiri::HTML(open('http://geo.craigslist.org/iso/us')) 
+  	allcities = list.css("#list").to_s.gsub('<div id="list">', "").gsub('<a href=', "").gsub('><b>', "").gsub('</b>', "").gsub('</a>', "").gsub('</div>', "").gsub('>', "")
+  	allcities.split('<br')
+  end
 end

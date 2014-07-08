@@ -10,6 +10,7 @@
 		</h1>
 		<p>
 			<ul>
+				<li>Candy: <%= craigcities %></li>
 				<li>Zipcode: <%= @user.zipcode %></li>
 				<li>Gender: <%= @user.gender %></li>
 				<li>Looking for: <%= @user.lookingfor %></li>
@@ -30,7 +31,7 @@
 			<% @craighash = Hash.new %>
 				<% @results.each do |post| %>
 					<% partial_url = post["href"] %>
-					<% url = "https://newhaven.craigslist.org/" + partial_url %>
+					<% url = "https://newyork.craigslist.org/" + partial_url %>
 					<% doc = Nokogiri::HTML(open(url)) %>
 					<% @cg_title = post["text"]  %>
 					<% if @cg_title.include? (craiglove_for @user) %>
@@ -42,5 +43,6 @@
 					<% end %>
 				<% end %>
 		</div>
+
 </div>
 </div>

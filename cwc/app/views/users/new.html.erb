@@ -17,7 +17,9 @@
         <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "pure-input-rounded" %>
         <br>
 
-        <%= f.text_field :zipcode, :placeholder => "Zipcode", :class => "pure-input-rounded" %>
+        <%= f.label :zipcode %>
+        <%= f.select :zipcode, options_for_select([["Female", "female"], ["Male", "male"], ["Trans","trans"]], :class => "fields") %>
+
         <%= f.text_field :age, :placeholder => "Age", :class => "pure-input-rounded" %>
         <br>
 

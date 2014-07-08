@@ -1,9 +1,0 @@
-<% @results.each do |post| %>
-	<% partial_url = post["href"] %>
-	<% url = "https://newhaven.craigslist.org/" + partial_url %>
-	<% doc = Nokogiri::HTML(open(url)) %>
-	<h1><%= @cg_title = post["text"] %></h1>
-	<p><b>User Traits: <%= @cg_traits = doc.css("b").text %></b></p>
-	<p>User's Email<a href="mailto:<%=doc.css("mailto").text%>">User's Email</a></p>
-	<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
-<% end %>
