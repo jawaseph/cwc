@@ -26,6 +26,6 @@ module UsersHelper
 	 		answer += '4t'
 	 	end
 
- 	return answer
+ 	return answer.reverse 
    end
 end
