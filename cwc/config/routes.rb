@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
-  get "craigslist/new"
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :posts, only: [:new, :create, :destroy]
+
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :posts, dependent: :destroy  #the dependent line is for when we delete a user, their posts will be deleted too
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 

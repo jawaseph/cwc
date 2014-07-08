@@ -10,8 +10,8 @@
 		</h1>
 		<p>
 			<ul>
-				<li>Candy: <%= craigcities %></li>
-				<li>Zipcode: <%= @user.zipcode %></li>
+<!-- 				<li>Candy: <%= craigcities %></li>
+ -->				<li>Zipcode: <%= @user.zipcode %></li>
 				<li>Gender: <%= @user.gender %></li>
 				<li>Looking for: <%= @user.lookingfor %></li>
 				<li>Age: <%= @user.age %></li>
@@ -22,12 +22,14 @@
 				<li>Haircolor: <%= @user.haircolor %></li>
 				<li>Email: <%= @user.email %></li>
 				<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+				<li><%= link_to "Post a Missed Connection", new_post_path %></li>
 			</ul>
 		</p>
 	</div>
 </div>
 	<div class="pure-u-1-2">
 		<div class="matches">
+			<%= render @posts %>
 			<% @craighash = Hash.new %>
 				<% @results.each do |post| %>
 					<% partial_url = post["href"] %>

@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = Post.all  #Filter matches here? Exclude User's own posts.
+
     @city = ("10001".to_region(:city => true)).delete(' ').downcase.to_sym
   	@user = User.find(params[:id])
     @results = Craigslist.city(@city).missed_connections.fetch(5)
@@ -52,12 +54,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :zipcode,:gender, :lookingfor, :age, :password, :password_confirmation, :height, :status, :occupation, :bodytype, :haircolor)      
     end
 
-     def signed_in_user
-     unless signed_in?
-       store_location
-       redirect_to signin_url, notice: "Please sign in."
-     end
-   end
+   #   def signed_in_user
+   #   unless signed_in?
+   #     store_location
+   #     redirect_to signin_url, notice: "Please sign in."
+   #   end
+   # end
 
    def correct_user
      @user = User.find(params[:id])

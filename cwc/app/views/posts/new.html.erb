@@ -1,0 +1,20 @@
+<% provide(:title, 'Post a Missed Connection') %>
+<div class="pure-g">
+  <div class="pure-u-1">
+    <h3>Post a Missed Connection</h3>
+
+      <div class="pure-form">
+        <%= form_for(@post) do |f| %>
+<!--    Change to error messages for @post, not @user   -->
+          <%= f.text_field :title, :placeholder => "Title", :class => "pure-input-rounded" %>
+
+          <%= f.text_field :content, :placeholder => "Content", :class => "pure-input-rounded" %>
+
+          <br>
+
+          <%= f.submit "Post", class: "button-signup pure-button", id: "sign-up2" %>
+          <% end %>
+      </div>
+      </div>
+  </div>
+</div>
