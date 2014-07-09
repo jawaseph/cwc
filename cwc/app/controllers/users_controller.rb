@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @city = ("06511".to_region(:city => true)).delete(' ').downcase.to_sym
-  	@user = User.find(params[:id])
-    @results = Craigslist.city(@city).missed_connections.fetch(50)
+    @user = User.find(params[:id])
+    @city = @user.zipcode.gsub(/\s+/, "").to_sym
+    @results = Craigslist.city(@city).missed_connections.fetch(7)
     @results
   end
 
@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     @user = User.new(strong_user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Coffee with a Creeper!"
       redirect_to @user
     else
       render 'new'
@@ -32,7 +31,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated."
       redirect_to @user
     else
       render 'edit' 

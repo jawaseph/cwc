@@ -46,8 +46,10 @@ module UsersHelper
   	end
   	if (input==0)
   		Hash[cities.zip(addresses)]
-  	else
+  	elsif (input==1)
   		cities.zip(cities)
-  	end 
+  	else 
+  	 	Hash[addresses.zip(cities)]
+  	 end
   end
 end

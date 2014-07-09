@@ -10,8 +10,7 @@
 		</h1>
 		<p>
 			<ul>
-				<li>Candy: <%= craigcities(0)["new haven "] %></li>
-				<li>Zipcode: <%= @user.zipcode %></li>
+				<li>Location: <%= @user.zipcode.gsub(/\s+/, "").to_sym %> </li>
 				<li>Gender: <%= @user.gender %></li>
 				<li>Looking for: <%= @user.lookingfor %></li>
 				<li>Age: <%= @user.age %></li>
@@ -31,13 +30,13 @@
 			<% @craighash = Hash.new %>
 				<% @results.each do |post| %>
 					<% partial_url = post["href"] %>
-					<% url = craigcities(0)["new haven "] + partial_url %>
+					<% url = craigcities(0)[@user.zipcode] + partial_url %>
 					<% doc = Nokogiri::HTML(open(url)) %>
 					<% @cg_title = post["text"]  %>
 					<% if @cg_title.include? (craiglove_for @user) %>
 					<h3><%= @cg_title %></h3>
 					<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("b").text %></b></p>
-					<p><a href="<%= @cg_email = "http://newhaven.craigslist.org/reply/hvn" + partial_url[0..(partial_url.length-6)] %>">Contact</a></p>
+					<p><a href="<%= @cg_email = craigcities(0)[@user.zipcode] + "/reply/hvn" + partial_url[0..(partial_url.length-6)] %>">Contact</a></p>
 					<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
 					<% @craighash[@cg_title] = [@cg_email, @cg_text, @cg_traits]  %>
 					<% end %>
