@@ -29,6 +29,12 @@ module UsersHelper
  	return answer.reverse 
    end
 
+  def findauthor(post)
+  	usernumber = post.user_id
+  	User.find_by(id: usernumber)
+  end
+
+
   def craigcities(input)
   	addresses = Array.new()
   	cities = Array.new()

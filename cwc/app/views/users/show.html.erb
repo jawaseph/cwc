@@ -28,6 +28,10 @@
 </div>
 	<div class="pure-u-1-2">
 		<div class="matches">
+
+			<div class="js">
+           <div id="preloader"></div>
+
 			<%= render @posts %>
 			<% @craighash = Hash.new %>
 				<% @results.each do |post| %>
@@ -37,13 +41,13 @@
 					<% @cg_title = post["text"]  %>
 					<% if @cg_title.include? (craiglove_for @user) %>
 					<h3><%= @cg_title %></h3>
-					<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("b").text %></b></p>
+					<p class="traits"><b>Poster's Traits: <%= @cg_traits = doc.css("#pagecontainer > section > section.userbody > div.mapAndAttrs > p > span:nth-child(1)").text.titleize %></b></p>
 					<p><a href="<%= @cg_email = craigcities(0)[@user.zipcode] + "/reply/hvn" + partial_url[0..(partial_url.length-6)] %>">Contact</a></p>
 					<p><%= @cg_text = doc.at_css("section#postingbody").text %></p>
 					<% @craighash[@cg_title] = [@cg_email, @cg_text, @cg_traits]  %>
 					<% end %>
 				<% end %>
 		</div>
-
+</div>
 </div>
 </div>

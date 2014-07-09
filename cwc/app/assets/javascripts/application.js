@@ -15,4 +15,8 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
 

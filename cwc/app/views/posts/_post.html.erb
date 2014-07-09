@@ -1,2 +1,4 @@
-	<h3> <%= post.title %> </h3>
+	<h3> <%= post.title %> - <%= craiglove_for(findauthor(post)).reverse %></h3>
+	<p class="traits"><b>Poster's Traits: | Age: <%= findauthor(post).age %> | Body: <%= findauthor(post).bodytype %> | Height: <%= findauthor(post).height %> | Status: <%= findauthor(post).status %> | Hair: <%= findauthor(post).haircolor %> | Job: <%= findauthor(post).occupation %></b></p>
+
 	<p> <%= post.content %> </p>
