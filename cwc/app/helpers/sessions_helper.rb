@@ -52,4 +52,31 @@ module SessionsHelper
     	cookies.delete(:remember_token)
     	self.current_user = nil
   	end
+
+    def craiglove_for(user)
+    answer = ''
+      if user.gender == 'male' 
+        answer += 'm'
+      elsif user.gender == 'female'
+        answer += 'w'
+      else
+        answer += 't'
+    end
+
+    if user.lookingfor == 'male'
+      answer += '4m'
+    elsif user.lookingfor == 'female'
+      answer += '4w'
+    else
+      answer += '4t'
+    end
+
+  return answer.reverse 
+   end
+
+  def findauthor(post)
+    usernumber = post.user_id
+    User.find_by(id: usernumber)
+  end
+  
 end

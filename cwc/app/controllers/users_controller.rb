@@ -3,14 +3,21 @@ class UsersController < ApplicationController
  before_action :signed_in_user, only: [:edit, :update]
  before_action :correct_user,   only: [:edit, :update]
 
+
   def new
   	@user = User.new
   end
 
   def show
-    @posts = Post.all  #Filter matches here? Exclude User's own posts.
 
     @user = User.find(params[:id])
+        @posts = Array.new #Filter matches here? Exclude User's own posts.
+
+    Post.all.each do |p|
+      if (craiglove_for(findauthor(p)) == craiglove_for(@user).reverse) && (findauthor(p).zipcode == @user.zipcode) && (findauthor(p) != @user)
+        @posts.push(p)
+      end
+    end
     @city = @user.zipcode.gsub(/\s+/, "").to_sym
     @results = Craigslist.city(@city).missed_connections.fetch(7)
     @results
